@@ -96,7 +96,7 @@ export function Estimator({ onSend }: { onSend: (payload: {
       (acc, r) => ({ min: acc.min + r.min, max: acc.max + r.max }),
       { min: 0, max: 0 }
     );
-  }, [state.selectedServices, getRangeForService]);
+  }, [state.selectedServices]);
 
   function update<K extends keyof EstimatorState>(key: K, value: EstimatorState[K]) {
     setState((s) => ({ ...s, [key]: value }));

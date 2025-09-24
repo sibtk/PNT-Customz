@@ -53,7 +53,7 @@ export function Chatbot() {
                     <span className="text-xs">🤖</span>
                   </div>
                   <div className="bg-gray-100 rounded-lg p-3 max-w-[80%]">
-                    <p className="text-sm text-gray-800">Hi! I'm here to help you get a quote for your automotive customization needs. Let me ask you a few questions to provide an accurate estimate.</p>
+                    <p className="text-sm text-gray-800">Hi! I&apos;m here to help you get a quote for your automotive customization needs. Let me ask you a few questions to provide an accurate estimate.</p>
                   </div>
                 </div>
                 
