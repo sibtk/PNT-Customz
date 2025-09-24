@@ -19,8 +19,13 @@ export function Header() {
       aria-label="Site header"
     >
       <div className="container-max flex items-center justify-between py-3">
-        <Link href="#" className="font-semibold tracking-tight text-white">
-          {SITE.company}
+        <Link href="#" className="flex items-center gap-3 font-semibold tracking-tight text-white">
+          <img 
+            src="/gallery/logo.png" 
+            alt="PNT Customz Logo" 
+            className="w-10 h-10 object-contain"
+          />
+          <span>{SITE.company}</span>
         </Link>
         <nav className="hidden md:flex gap-6" aria-label="Primary">
           {NAV_LINKS.map((l) => (

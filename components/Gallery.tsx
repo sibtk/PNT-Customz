@@ -7,6 +7,7 @@ type MediaItem = { src: string; type: "image" | "video" };
 
 // Static gallery data - replace with actual gallery items
 const media: MediaItem[] = [
+  { src: "/gallery/logo.png", type: "image" },
   { src: "/gallery/g-001.mp4", type: "video" },
   { src: "/gallery/g-002.mp4", type: "video" },
   { src: "/gallery/g-003.jpg", type: "image" },
