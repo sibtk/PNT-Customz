@@ -43,13 +43,12 @@ export function Gallery() {
                     muted
                     loop
                     playsInline
-                    onMouseEnter={(e) => (e.currentTarget as HTMLVideoElement).play()}
-                    onMouseLeave={(e) => (e.currentTarget as HTMLVideoElement).pause()}
+                    autoPlay
                   />
                 )}
               </div>
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-white/80 text-xs bg-black/20 opacity-0 group-hover:opacity-100 transition">
-                {m.type === "video" ? "Hover to play" : ""}
+                {m.type === "video" ? "Playing" : ""}
               </div>
             </div>
           ))}
