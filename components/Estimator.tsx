@@ -54,7 +54,6 @@ export function Estimator({ onSend }: { onSend: (payload: {
       window.localStorage.removeItem(STORAGE_KEY);
     } catch {}
     setState(DEFAULTS);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function getRangeForService(key: string): { min: number; max: number } | null {
@@ -97,7 +96,7 @@ export function Estimator({ onSend }: { onSend: (payload: {
       (acc, r) => ({ min: acc.min + r.min, max: acc.max + r.max }),
       { min: 0, max: 0 }
     );
-  }, [state.selectedServices, state.size]);
+  }, [state.selectedServices, state.size, getRangeForService]);
 
   function update<K extends keyof EstimatorState>(key: K, value: EstimatorState[K]) {
     setState((s) => ({ ...s, [key]: value }));

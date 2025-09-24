@@ -1,12 +1,12 @@
 "use client";
 
+import Image from "next/image";
+
 type MediaItem = { src: string; type: "image" | "video" };
 let media: MediaItem[] = [];
 try {
   // Load manifest produced by rename script
-  const el = document?.createElement('link');
-  // no-op to keep TS happy with "document" in client comp
-  media = require("../public/gallery/manifest.json").items as MediaItem[];
+  media = require("../../public/gallery/manifest.json").items as MediaItem[];
 } catch {}
 
 export function Gallery() {
@@ -20,10 +20,11 @@ export function Gallery() {
             <div key={i} className="group relative overflow-hidden rounded-xl bg-[#2A2C31]">
               <div className="aspect-[4/3] w-full">
                 {m.type === "image" ? (
-                  // Use native img to avoid Next/Image 404 warnings during content staging
-                  <img
+                  <Image
                     src={m.src}
                     alt="Gallery item"
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 ) : (

@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { SITE } from "@/config/site";
 
 // Smooth scroll function
