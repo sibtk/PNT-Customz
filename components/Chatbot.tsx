@@ -5,10 +5,6 @@ import { Estimator } from "./Estimator";
 
 export function Chatbot() {
   const [open, setOpen] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setOpen(true), 800);
-    return () => clearTimeout(t);
-  }, []);
 
   function handleSend(payload: unknown) {
     if (typeof window === "undefined") return;

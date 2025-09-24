@@ -8,12 +8,10 @@ import { LocationHours } from "@/components/LocationHours";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Footer } from "@/components/Footer";
 import { Chatbot } from "@/components/Chatbot";
-import { IntroVideo } from "@/components/IntroVideo";
 
 export default function Home() {
   return (
     <div>
-      <IntroVideo />
       <Header />
       <main>
         <Hero />
