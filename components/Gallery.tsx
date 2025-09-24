@@ -3,11 +3,20 @@
 import Image from "next/image";
 
 type MediaItem = { src: string; type: "image" | "video" };
-let media: MediaItem[] = [];
-try {
-  // Load manifest produced by rename script
-  media = require("../../public/gallery/manifest.json").items as MediaItem[];
-} catch {}
+
+// Static gallery data - replace with actual gallery items
+const media: MediaItem[] = [
+  { src: "/gallery/g-001.mp4", type: "video" },
+  { src: "/gallery/g-002.mp4", type: "video" },
+  { src: "/gallery/g-003.jpg", type: "image" },
+  { src: "/gallery/g-004.mp4", type: "video" },
+  { src: "/gallery/g-005.mp4", type: "video" },
+  { src: "/gallery/g-006.jpg", type: "image" },
+  { src: "/gallery/g-007.mp4", type: "video" },
+  { src: "/gallery/g-008.jpg", type: "image" },
+  { src: "/gallery/g-009.jpg", type: "image" },
+  { src: "/gallery/g-010.mp4", type: "video" },
+];
 
 export function Gallery() {
   return (
