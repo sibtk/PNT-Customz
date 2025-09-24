@@ -181,8 +181,32 @@ export function QuoteForm() {
             {errors.email && <p className="text-red-400 text-sm">{String(errors.email.message)}</p>}
           </div>
           <div className="grid gap-2 md:col-span-2">
+            <label className="text-sm">Photos (Optional)</label>
+            <div className="bg-[#1A1B1E] border border-white/10 rounded-xl p-4">
+              <input
+                type="file"
+                multiple
+                accept="image/*"
+                className="w-full text-sm text-white/60 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-[#E02727] file:text-white hover:file:bg-[#C02323]"
+                onChange={(e) => {
+                  const files = e.target.files;
+                  if (files && files.length > 0) {
+                    console.log(`Selected ${files.length} photos`);
+                    // TODO: Implement photo upload to server
+                  }
+                }}
+              />
+              <p className="text-xs text-white/60 mt-2">Upload photos of your vehicle or specific areas you want worked on (max 6 photos)</p>
+            </div>
+          </div>
+          <div className="grid gap-2 md:col-span-2">
             <label className="text-sm">Notes</label>
-            <textarea rows={4} {...register("notes")} className="bg-[#1A1B1E] border border-white/10 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-[#E02727]" />
+            <textarea 
+              rows={4} 
+              {...register("notes")} 
+              className="bg-[#1A1B1E] border border-white/10 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-[#E02727]" 
+              placeholder="State any damages, specific parts in need of repair or install, custom requests, or any other details about your project..."
+            />
           </div>
           <div className="md:col-span-2">
             <button disabled={submitting} className="rounded-full bg-[#E02727] text-white px-6 py-3 font-medium disabled:opacity-70">
