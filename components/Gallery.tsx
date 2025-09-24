@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 type MediaItem = { src: string; type: "image" | "video" };
 
@@ -19,6 +20,29 @@ const media: MediaItem[] = [
 ];
 
 export function Gallery() {
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const video = entry.target as HTMLVideoElement;
+            video.play().catch(() => {
+              // Silently handle autoplay failures
+            });
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    videoRefs.current.forEach((video) => {
+      if (video) observer.observe(video);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <section id="gallery" className="py-16" aria-label="Our Work">
       <div className="container-max">
@@ -38,6 +62,9 @@ export function Gallery() {
                   />
                 ) : (
                   <video
+                    ref={(el) => {
+                      if (el) videoRefs.current[i] = el;
+                    }}
                     className="w-full h-full object-contain bg-black"
                     src={m.src}
                     muted
